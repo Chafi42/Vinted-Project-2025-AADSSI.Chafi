@@ -1,50 +1,188 @@
-# Welcome to your Expo app 👋
+EcoVente -> Site de fin d'année : 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Items de recherche : 
 
-## Get started
+-> Mode & Accesoires : 
+			-> Vêtements (Homme, Femme, Enfant, Bébé)
+			-> Chaussures
+			-> Sacs & Maroquinerie
+			-> Bijoux & Montres
+			-> Lunettes de Soleil
+			-> Accessoires de Mode
+-> Eléctronique & high-tech  : 
+			-> Smartphones & Tablettes
+			-> Ordinateurs & Périphériques
+			-> Télévisions & Home Cinema
+			-> Consoles & Jeux Vidéo
+			-> Appareils Photo & Caméras
+			-> Audio & Casques
+-> Maison & déco : 
+			-> Meubles
+			-> Décoration d'intérieur
+			-> Luminaires
+			-> Arts de la Table
+			-> Textiles (rideaux, tapis, etc.)
+			-> Rangements
+-> Electromenager :
+			-> Gros Électroménager (Réfrigérateurs, 
+			Machines à laver, etc.)
+			-> Petit Électroménager (Aspirateurs, Mixeurs, etc.)
+			-> Climatiseurs & Chauffages
+			-> Cafetières & Machines à café
+-> Bricolage & Jardinage :
+			-> Outils & Matériel de Bricolage
+			-> Mobilier de Jardin
+			-> Équipement de Jardinage 
+			(Tondeuses, Tracteurs, etc.)
+			-> Décoration extérieure (Plantes, Pots, etc.)
+			-> Construction & Rénovation 
+			(Peintures, matériaux, etc.)
+-> Loisirs & sports :
+			-> Matériel de Sport (Vélos, Tapis de course, etc.)
+			-> Sports d'équipe (Football, Basket, etc.)
+			-> Sports de glisse (Skateboards, Snowboards, etc.)
+			-> Musique & Instruments (Guitares, Pianos, etc.)
+			-> Livres & BD
+			-> Films & Séries
+			-> Jeux de Société
+-> Véhicule :
+			-> Voitures
+			-> Motos & Scooters
+			-> Vélos & Trottinettes
+			-> Pièces détachées & Accessoires
+			-> Équipement Auto (GPS, Housses, etc.)
+			-> Campings-cars & Caravans
+-> Bébé & enfants :
+			-> Vêtements Bébé & Enfant
+			-> Jouets & Jeux éducatifs
+			-> Poussettes & Sièges auto
+			-> Matériel de puériculture 
+			(Chaises hautes, berceaux, etc.)
+			-> Livres & Décoration pour enfants
+-> Animaux :
+			-> Accessoires pour Animaux (Litières, Cages, etc.)
+			-> Nourriture 
+			-> Soins
+			-> Jouets pour Animaux
+			-> Vêtements pour Animaux
+			-> Équipement d'entraînement (laisses, harnais, etc.)
+-> Beauté & bien-être :
+			-> Produits de soin (Soins du visage, du corps)
+			-> Maquillage & Cosmétique
+			-> Parfums
+			-> Équipements de bien-être (massages, appareils, etc.)
+			-> Coiffure (Sèche-cheveux, Lisseurs, etc.)	
+-> Livre, musique & Films :
+			-> Livres & BD d'occasion
+			-> CD, Vinyles
+			-> DVD & Blu-ray
+			-> Instruments de Musique
+-> Jeux & jouets :
+			-> Jeux vidéo & Consoles
+			-> Jeux de société & puzzles
+			-> Jouets
+			-> Modélisme & Maquettes
+-> Collectibles & Arts :
+			-> Antiquités
+			-> Objets de Collection (Timbres, Monnaies, etc.)
+			-> Peintures & Sculptures
+			-> Figurines, Modèles réduits
+			-> Posters & Photographies
+-> Services :
+			-> Cours & Leçons (Musique, Sport, Soutien scolaire)
+			-> Services à la personne (Ménage, Jardinage, etc.)
+			-> Réparations & Dépannage
+			-> Livraisons & Déménagements
+-> Informatique & bureautique :
+			-> Ordinateurs portables & de bureau 
+			-> Imprimantes & Scanners
+			-> Accessoires de Bureau (Chaises, Étagères, etc.)
+			-> Équipements réseau & Périphériques (claviers, souris, etc.)
+-> Voyages & Loisirs :
+			-> Bagages & Valises
+			-> Matériel de camping (tentes, sacs de couchage, etc.)
+			-> Équipements de randonnée
+			-> Accessoires de voyage
 
-1. Install dependencies
+----------------------------------------------------------------------------------------------
 
-   ```bash
-   npm install
-   ```
+Base de donnée : 
 
-2. Start the app
+-> User : 
+	-> id (int)
+   -> sexe (string)
+   -> firstName (string)
+   -> lastName  (string)
+   -> phone (int)
+   -> e-mail (string)
+   -> password (string)
+   -> birthDate (dateImmutable)
+   -> city (string)
+   -> country (string)
+   -> picture (string)
+   -> createdAt (dateImmutable)
+   -> updatedAt (dateImmutable)
+   -> deletedAt (dateImmutable)
 
-   ```bash
-    npx expo start
-   ```
+-> Categorie : 
+   -> id (int)
+   -> category_id (int)
+   -> category_name (string)
+   -> createdAt(datetime)
+   -> deletedAt (datetime)
 
-In the output, you'll find options to open the app in a
+-> Product     
+	-> id (int)
+   -> product_id (int)	
+   -> user_id (int)
+   -> category_id	(int)
+   -> title (varchar)	
+   -> description (varchar)
+   -> price (float)	
+   -> condition (varchar)
+   -> image_url (varchar)	
+   -> created_at (datetime)	
+   -> updated_at (datetime)	
+	
+-> Product-Image :
+	-> id (int)
+	-> image_id (int)
+	-> product_id (int)
+	-> image_url (varchar)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+-> Transaction : 
+	-> id (int)
+   -> buyerId (int)
+   -> sellerId (int)
+   -> productId (int)
+   -> price (int)
+   -> status(string)
+   -> transactionDate (dateImmutable)
+   -> createdAt (dateImmutable)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+-> Message : 
+	-> id (int)
+   -> senderId (int)
+   -> receiverId (int)
+   -> productId (int)
+   -> content (string)
+   -> createdAt (dateImmutable)
+   -> updatedAt (dateImmutable)
+   -> deletedAt (dateImmutable)
 
-## Get a fresh project
+-> Favorite : 
+	-> id (int)
+	-> favorite_id(int)
+	-> user_id (int)
+	-> product_id (varchar)
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+-> Notificatation : 
+	-> id (int)
+	-> notification_id (int)
+	-> user_id (int)
+	-> title (varchar)
+	-> content (varchar)
+	-> isRead (booléin)
+   -> createdAt (dateImmutable)
+   -> deletedAt (dateImmutable)

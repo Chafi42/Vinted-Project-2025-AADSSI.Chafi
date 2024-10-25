@@ -1,37 +1,100 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Tabs } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+    return (
+        <Tabs
+            screenOptions={{
+            tabBarActiveTintColor: 'white',
+            tabBarStyle: { backgroundColor: '#FF5A00' },
+            tabBarShowLabel: false, 
+            }}>
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+            <Tabs.Screen
+            name="Magasin"
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                <Ionicons 
+                    name="storefront-outline" 
+                    color='#ffffff' 
+                    size={size}
+                    style={styles.icons} 
+                />
+                ),
+            }}
+            />
 
-  if (!loaded) {
-    return null;
-  }
+            <Tabs.Screen
+            name="Inscription"
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                <Ionicons 
+                    name="search-outline" 
+                    color='#ffffff' 
+                    size={size}
+                    style={styles.icons} 
+                />
+                ),
+            }}
+            />
 
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-  );
+            <Tabs.Screen
+            name="Connexion"
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                <Ionicons 
+                    name="person-outline" 
+                    color='#ffffff' 
+                    size={size}
+                    style={styles.icons} 
+                />
+                ),
+            }}
+            />
+
+            <Tabs.Screen
+            name="Accueil"
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                <Ionicons 
+                    name="home-outline" 
+                    color='#ffffff' 
+                    size={size}
+                    style={styles.icons} 
+                />
+                ),
+            }}
+            />
+
+            <Tabs.Screen
+            name="index"
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ color, size }) => (
+                <Ionicons 
+                    name="refresh-outline" 
+                    color='#ffffff' 
+                    size={size}
+                    style={styles.icons} 
+                />
+                ),
+            }}
+            />
+                        
+        </Tabs>
+    );
 }
+
+const styles = StyleSheet.create({
+    icons: {
+        color: '#ffffff',
+        fontSize : 30,
+        paddingVertical: 20,
+    },
+});
